@@ -1,0 +1,16 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Run Android Tests",
+      "program": "${workspaceFolder}/node_modules/.bin/codeceptjs",
+      "args": ["run", "--config=codecept.android.conf.js", "${relativeFile}"],
+      "console": "integratedTerminal",
+      "env": {
+        "ANDROID_HOME": "C:\\Users\\amyll\\AppData\\Local\\Android\\Sdk"
+      }
+    }
+  ]
+} 
