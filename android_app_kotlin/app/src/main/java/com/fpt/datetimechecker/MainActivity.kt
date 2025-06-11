@@ -2,6 +2,7 @@ package com.fpt.datetimechecker
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
@@ -61,46 +62,54 @@ class MainActivity : AppCompatActivity() {
         val month: Int
         val year: Int
         
-        try {
+                try {
             day = dayStr.toInt()
+            Log.d("DateTimeChecker", "Parsed day: $day")
         } catch (e: NumberFormatException) {
+            Log.e("DateTimeChecker", "Day parsing failed: '$dayStr'")
             showResult("Day must be a number (current input: '$dayStr')")
             return
         }
-        
+
         try {
             month = monthStr.toInt()
+            Log.d("DateTimeChecker", "Parsed month: $month")
         } catch (e: NumberFormatException) {
+            Log.e("DateTimeChecker", "Month parsing failed: '$monthStr'")
             showResult("Month must be a number (current input: '$monthStr')")
             return
         }
-        
+
         try {
             year = yearStr.toInt()
+            Log.d("DateTimeChecker", "Parsed year: $year")
         } catch (e: NumberFormatException) {
+            Log.e("DateTimeChecker", "Year parsing failed: '$yearStr'")
             showResult("Year must be a number (current input: '$yearStr')")
             return
         }
         
         // Validate ranges
+        Log.d("DateTimeChecker", "Validating day: $day (should be 1-31)")
         if (day < 1 || day > 31) {
+            Log.w("DateTimeChecker", "Day out of range: $day")
             showResult("Input data for Day is out of range")
             return
         }
         
         if (month < 1 || month > 12) {
-            showResult("Input data for Month is out of range ")
+            showResult("Input data for Month is out of range")
             return
         }
         
         if (year < 1000 || year > 3000) {
-            showResult("Input data for Year is out of range ")
+            showResult("Input data for Year is out of range")
             return
         }
         
         // Check for valid date combinations
         if (!isValidDate(day, month, year)) {
-            showResult(" $day/$month/$year is NOT correct date time !")
+            showResult("$day/$month/$year is NOT correct date time !")
             return
         }
         
