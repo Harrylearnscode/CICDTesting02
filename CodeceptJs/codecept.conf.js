@@ -21,6 +21,7 @@ exports.config = {
       host: '127.0.0.1',
       port: 4723,
       path: '/',
+      
       desiredCapabilities: {
         automationName: 'UiAutomator2',
         newCommandTimeout: 300,

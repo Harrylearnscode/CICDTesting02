@@ -100,6 +100,10 @@ class MainActivity : AppCompatActivity() {
         if (month < 1 || month > 12) {
             showResult("Input data for Month is out of range")
             return
+
+
+
+
         }
         
         if (year < 1000 || year > 3000) {
