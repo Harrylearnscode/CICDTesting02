@@ -115,6 +115,7 @@ class MainActivity : AppCompatActivity() {
         if (!isValidDate(day, month, year)) {
             showResult("$day/$month/$year is NOT correct date time !")
             return
+            
         }
         
         // If we reach here, the date is valid
